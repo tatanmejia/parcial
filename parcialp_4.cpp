@@ -5,7 +5,7 @@ void pedir_datos();
 void mult_matriz();
 void imprimir_datos();
 
-int nFilas, nColumnas, **p_matriz1,**p_matriz2,**p_matriz_mult;
+int filas, columnas, **p_matriz1,**p_matriz2,**p_matriz_mult;
 
 int main(){
 	pedir_datos();
@@ -21,35 +21,31 @@ int main(){
 
 void pedir_datos(){
 
-	printf("\t\tTAMANO DE MATRIZ \n");
 	printf("\nIngrese Cantidad de Filas: ");
-	scanf("%d", &nFilas);
+	scanf("%d", &filas);
 
 	printf("\nIngrese Cantidad de Columnas: ");
-	scanf("%d", &nColumnas);
+	scanf("%d", &columnas);
 
-	p_matriz1 = (int **)malloc(nFilas * sizeof(int *));
-	for(int x = 0; x < nColumnas; x++){
-		p_matriz1[x] = (int *)malloc(nColumnas * sizeof(int ));
+	p_matriz1 = (int **)malloc(filas * sizeof(int *));
+	for(int x = 0; x < columnas; x++){
+		p_matriz1[x] = (int *)malloc(columnas * sizeof(int ));
 	}
-    printf("\n**********************************************\n");
-    printf("\t\t\nLLENADO DE MATRIZ 1\n");
-    for(int a=0; a<nFilas; a++){
-        for(int b=0; b<nColumnas; b++){
+
+    for(int a=0; a<filas; a++){
+        for(int b=0; b<columnas; b++){
             printf("\nIngrese dato para posicion [%d,%d]: ", a, b);
             scanf("%d", &(*(*(p_matriz1+b)+a)));
         }
     }
 
-	p_matriz2 = (int **)malloc(nFilas * sizeof(int *));
-	for(int y=0; y<nColumnas; y++){
-		p_matriz2[y] = (int *)malloc(nColumnas * sizeof(int ));
+	p_matriz2 = (int **)malloc(filas * sizeof(int *));
+	for(int y=0; y<columnas; y++){
+		p_matriz2[y] = (int *)malloc(columnas * sizeof(int ));
 	}
 
-    printf("\n**********************************************\n");
-    printf("\t\t\nLLENADO DE MATRIZ 2\n");
-    for(int c = 0; c < nFilas; c++){
-        for(int d = 0; d < nColumnas; d++){
+    for(int c = 0; c < filas; c++){
+        for(int d = 0; d < columnas; d++){
             printf("\nIngrese dato para posicion [%d,%d]: ", d, c);
             scanf("%d", &(*(*(p_matriz2+d)+c)));
         }
@@ -58,15 +54,15 @@ void pedir_datos(){
 
 void mult_matriz(){
 
-	p_matriz_mult = (int **)malloc(nFilas * sizeof(int *));
-	for(int i=0; i<nColumnas; i++){
-		p_matriz_mult[i] = (int *)malloc(nColumnas * sizeof(int ));
+	p_matriz_mult = (int **)malloc(filas * sizeof(int *));
+	for(int i=0; i<columnas; i++){
+		p_matriz_mult[i] = (int *)malloc(columnas * sizeof(int ));
 	}
 
-    for(int a=0; a<nFilas; a++){
-        for(int b=0; b<nColumnas; b++){
+    for(int a=0; a<filas; a++){
+        for(int b=0; b<columnas; b++){
             (*(*(p_matriz_mult+b)+a))=0;
-            for(int c=0;c<nColumnas;c++){
+            for(int c=0;c<columnas;c++){
                 (*(*(p_matriz_mult+b)+a))=(*(*(p_matriz_mult+b)+a)) + ((*(*(p_matriz1+a)+c)) * (*(*(p_matriz2+c)+b)));
             }
         }
@@ -75,33 +71,27 @@ void mult_matriz(){
 
 void imprimir_datos(){
 
-    printf("\n**********************************************\n");
-    printf("\t\t\nMATRIZ 1\n");
-	printf("\nLa Matriz 1 ingresada fue: \n\n");
+	printf("La Matriz 1 ingresada es: \n\n");
 
-	for(int f = 0; f < nFilas; f += 1){
-		for(int c = 0; c < nColumnas; c++){
+	for(int f = 0; f < filas; f += 1){
+		for(int c = 0; c < columnas; c++){
 			printf(" %d ",*(*(p_matriz1+c)+f));
 		}printf("\n");
 	}
 
-    printf("\n**********************************************\n");
-    printf("\t\t\nMATRIZ 2\n");
-	printf("\nLa Matriz 2 ingresada fue: \n\n");
+	printf("La Matriz 2 ingresada es: \n\n");
 
-	for(int f = 0; f < nFilas; f += 1){
-		for(int c = 0; c < nColumnas; c++){
+	for(int f = 0; f < filas; f += 1){
+		for(int c = 0; c < columnas; c++){
 			printf(" %d ",*(*(p_matriz2+c)+f));
 		}printf("\n");
 	}
 
-    printf("\n**********************************************\n");
-    printf("\t\t\nMOSTRAR RESULTADO DE MATRIZ MULTIPLICADA\n");
-	printf("\nLa Matriz resultante fue: \n\n");
+	printf("\nLa Matriz resultante es: \n\n");
 
-	for(int f = 0; f < nFilas; f += 1){
-		for(int c = 0; c < nColumnas; c++){
-			printf(" %d ",*(*(p_matriz_mult+f)+c));
+	for(int f = 0; f < filas; f += 1){
+		for(int c = 0; c < columnas; c++){
+			printf(" %d ",*(*(p_matriz_mult+c)+f));
 		}printf("\n");
 	}
 }
