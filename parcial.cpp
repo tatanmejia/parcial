@@ -102,12 +102,12 @@ int main(){
       }
 
 
-    printf("El proveedor mas caro es; ");
+    printf("El proveedor mas caro es:\n ");
     printf("Nombre: %s\n",provee[mayor].nombre);
     printf("Precio unitario es: %d\n",provee[mayor].product[mayor].precio_uni);
     printf("\n\n ");
 
-    printf("El proveedor mas barato es; ");
+    printf("El proveedor mas barato es:\n ");
     printf("Nombre: %s\n",provee[menor].nombre);
     printf("Precio unitario es: %d\n",provee[menor].product[menor].precio_uni);
     printf("\n\n ");
@@ -117,7 +117,7 @@ int main(){
     for(int i=0;i<cantd;i++){
 
 
-        printf("%s",cant_producto[i]);
+        printf("%s\n",cant_producto[i]);
     }
 
 return 0;
