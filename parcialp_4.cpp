@@ -63,7 +63,7 @@ void mult_matriz(){
         for(int b=0; b<columnas; b++){
             (*(*(p_matriz_mult+b)+a))=0;
             for(int c=0;c<columnas;c++){
-                (*(*(p_matriz_mult+b)+a))=(*(*(p_matriz_mult+b)+a)) + ((*(*(p_matriz1+a)+c)) * (*(*(p_matriz2+c)+b)));
+               (*(*(p_matriz_mult+b)+a))=(*(*(p_matriz_mult+b)+a)) + ((*(*(p_matriz1+a)+c)) * (*(*(p_matriz2+c)+b)));
             }
         }
     }
@@ -89,9 +89,9 @@ void imprimir_datos(){
 
 	printf("\nLa Matriz resultante es: \n\n");
 
-	for(int f = 0; f < filas; f += 1){
+    for(int f = 0; f < filas; f += 1){
 		for(int c = 0; c < columnas; c++){
-			printf(" %d ",*(*(p_matriz_mult+c)+f));
+			printf(" %d ",*(*(p_matriz_mult+f)+c));
 		}printf("\n");
 	}
 }
