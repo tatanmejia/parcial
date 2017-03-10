@@ -32,7 +32,8 @@ int main(){
 
 
 
-    int cantd;
+    int cantd, prod_mayor,prod_menor;
+    int menor=0,mayor=0;
 
     printf("Ingrese la cantidad de proveedores a registar\n");
     scanf("%d",&cantd);
@@ -52,7 +53,7 @@ int main(){
     scanf("%s",provee[i].direccion );
 
     printf("Ingrese nombre del producto:\n");
-    scanf("%s",cant_producto);
+    scanf("%s",cant_producto[i],provee[i].product[i]);
     printf("Ingrese valor unitario :\n");
     scanf("%d",&provee[i].product[i].precio_uni);
     printf("Ingrese cantidad vendida :\n");
@@ -74,21 +75,50 @@ int main(){
 
     }
 
+    prod_menor=provee[0].product[0].precio_uni;
+    prod_mayor=provee[0].product[0].precio_uni;
+
+    for(int i=0;i<cantd;i++){
+        if(prod_mayor<=provee[i].product[i].precio_uni);
+            {
+                prod_mayor=provee[i].product[i].precio_uni;
+
+                mayor=i;
+
+             }
+
+      }
+
+      for(int i=0;i<cantd;i++){
+
+        if(prod_menor>=provee[i].product[i].precio_uni)
+        {
+            prod_menor=provee[i].product[i].precio_uni;
 
 
 
+        menor=i; }
+
+      }
 
 
+    printf("El proveedor mas caro es; ");
+    printf("Nombre: %s\n",provee[mayor].nombre);
+    printf("Precio unitario es: %d\n",provee[mayor].product[mayor].precio_uni);
+    printf("\n\n ");
+
+    printf("El proveedor mas barato es; ");
+    printf("Nombre: %s\n",provee[menor].nombre);
+    printf("Precio unitario es: %d\n",provee[menor].product[menor].precio_uni);
+    printf("\n\n ");
 
 
+    printf("Listado de productos ingresados es: \n");
+    for(int i=0;i<cantd;i++){
 
 
-
-
-
-
-
-
+        printf("%s",cant_producto[i]);
+    }
 
 return 0;
 }
