@@ -24,17 +24,14 @@ void dato(){
 	for(int i=0; i<columna; i++){
 		pmatriz[i]=(int*)malloc(columna*sizeof(int));
 	}
-	if(pmatriz==NULL){
-		printf("Error reservando memoria. \n");
-		exit (1);
-	}else{
+
 		printf("\n\n");
 		for(int f =0; f<fila; f++){
 			for(int col=0; col<columna; col++){
 				printf("ingrese dato para posicion (%d, %d): ", f, col);
 				scanf("%d", &(*(*(pmatriz+col)+f))); }
 		}
-	}
+
 }
 void impresion(){
     printf("\n Matriz ingresada es: \n");
